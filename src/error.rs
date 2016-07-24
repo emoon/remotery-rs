@@ -1,53 +1,93 @@
 use std::fmt;
 use std::error::Error;
-use std::result;
-
-pub type Result<T> = result::Result<T, RemoteryError>;
 
 #[derive(Debug, Clone, Copy)]
 pub enum RemoteryError {
+	/// Malloc call within remotery failed
     Malloc = 1,
+	/// Attempt to allocate thread local storage failed
     TlsAllocFail = 2,
+	/// Failed to create a virtual memory mirror buffer
     VirtualMemoryBufferFail = 3,
+	/// Failed to create a thread for the server
     CreateThreadFail = 4,
+	/// Network initialisation failure (e.g. on Win32, WSAStartup fails)
     SocketInitNetworkFail = 5,
+	/// Can't create a socket for connection to the remote viewer
     SocketCreateFail = 6,
+	/// Can't bind a socket for the server
     SocketBindFail = 7,
+	/// Created server socket failed to enter a listen state
     SocketListenFail = 8,
+	/// Created server socket failed to switch to a non-blocking state
     SocketSetNonBlockingFail = 9,
+	/// Poll attempt on an invalid socket
     SocketInvalidPoll = 10,
+	/// Server failed to call select on socket
     SocketSelectFail = 11,
+	/// Poll notified that the socket has errors
     SocketPollErrors = 12,
+	/// Server failed to accept connection from client
     SocketAcceptFail = 13,
+	/// Timed out trying to send data
     SocketSendTimeout = 14,
+	/// Unrecoverable error occured while client/server tried to send data
     SocketSendFail = 15,
+	/// No data available when attempting a receive
     SocketRecvNoData = 16,
+	/// Timed out trying to receive data
     SocketRecvTimeout = 17,
+	/// Unrecoverable error occured while client/server tried to receive data
     SocketRecvFailed = 18,
+	/// WebSocket server handshake failed, not HTTP GET
     WebsocketHandshakeNotGet = 19,
+	/// WebSocket server handshake failed, can't locate WebSocket version
     WebsocketHandshakeNoVersion = 20,
+	/// WebSocket server handshake failed, unsupported WebSocket version
     WebsocketHandshakeBadVersion = 21,
+	/// WebSocket server handshake failed, can't locate host
     WebsocketHandshakeNoHost = 22,
+	/// WebSocket server handshake failed, host is not allowed to connect
     WebsocketHandshakeBadHost = 23,
+	/// WebSocket server handshake failed, can't locate WebSocket key
     WebsocketHandshakeNoKey = 24,
+	/// WebSocket server handshake failed, WebSocket key is ill-formed
     WebsocketHandshakeBadKey = 25,
+	/// WebSocket server handshake failed, internal error, bad string code
     WebsocketHandshakeStringFail = 26,
+	/// WebSocket server received a disconnect request and closed the socket
     WebsocketDisconnected = 27,
+	/// Couldn't parse WebSocket frame header
     WebsocketBadFrameHeader = 28,
+	/// Partially received wide frame header size
     WebsocketBadFrameHeaderSize = 29,
+	/// Partially received frame header data mask
     WebsocketBadFrameHeaderMask = 30,
+	/// Timeout receiving frame header
     WebsocketReceiveTimeout = 31,
+	/// Remotery object has not been created
     RemoteryNotCreated = 32,
+	/// An attempt was made to send an incomplete profile tree to the client
     SendOnIncompleteProfile = 33,
+	/// This indicates that the CUDA driver is in the process of shutting down
     CudaDeinitialized = 34,
+	/// This indicates that the CUDA driver has not been initialized with cuInit() or that initialization has failed
     CudaNotInitialized = 35,
+	/// This most frequently indicates that there is no context bound to the current thread
     CudaInvalidContext = 36,
+	/// This indicates that one or more of the parameters passed to the API call is not within an acceptable range of values
     CudaInvalidValue = 37,
+	/// This indicates that a resource handle passed to the API call was not valid
     CudaInvalidHandle = 38,
+	/// The API call failed because it was unable to allocate enough memory to perform the requested operation
     CudaOutofMemory = 39,
+	/// This indicates that a resource handle passed to the API call was not valid
     ErrorNotReady = 40,
+	/// Failed to create query for sample
     D3d11FailedToCreateQuery = 41,
+	/// Generic OpenGL error, no real need to expose more detail since app will probably have an OpenGL error callback registered
     OpenglError = 42,
+	/// Unknown error
     Unknown = 43,
 }
 
