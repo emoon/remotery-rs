@@ -1,8 +1,8 @@
 [package]
 name = "remotery"
-version = "0.1.1"
+version = "0.1.2"
 license = "MIT/Apache-2.0"
-keywords = ["profiling", "realtime"]
+keywords = ["real-time", "profile"]
 description = "Realtime CPU Profiler with web browser viewer"
 repository = "https://github.com/emoon/remotery-rs"
 homepage = "https://github.com/emoon/remotery-rs"
