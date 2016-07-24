@@ -13,6 +13,7 @@ Usage
 # Cargo.toml
 [dependencies]
 remotery = "0.1"
+```
 
 Example
 -------
