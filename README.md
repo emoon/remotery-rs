@@ -1,4 +1,4 @@
-# remotery-rs [![Build Status](https://travis-ci.org/emoon/remotery-rs.svg?branch=master)](https://travis-ci.org/emoon/remotery-rs) [![Build status](https://ci.appveyor.com/api/projects/status/ipdufbh57655ln1q?svg=true])(https://ci.appveyor.com/project/emoon/remotery-rs) [![Crates.io](https://img.shields.io/crates/v/remotery.svg)](https://crates.io/crates/remotery)
+# remotery-rs [![Build Status](https://travis-ci.org/emoon/remotery-rs.svg?branch=master)](https://travis-ci.org/emoon/remotery-rs) [![Build status](https://ci.appveyor.com/api/projects/status/ipdufbh57655ln1q?svg=true)](https://ci.appveyor.com/project/emoon/remotery-rs) [![Crates.io](https://img.shields.io/crates/v/remotery.svg)](https://crates.io/crates/remotery)
 
 Remotery is a realtime CPU/GPU profiler with a viewer that runs in a web browser. This lib is a [Rust](https://www.rust-lang.org) wrapper around the C API provided by Remotery and the original repo over here https://github.com/Celtoys/Remotery where more information can be found of how to use the UI. Notice that the remotery-rs only support CPU sampling currently.
 
