@@ -2,7 +2,6 @@
 name = "remotery"
 version = "0.1.1"
 license = "MIT/Apache-2.0"
-description = "profiling real-time"
 keywords = ["profiling", "realtime"]
 description = "Realtime CPU Profiler with web browser viewer"
 repository = "https://github.com/emoon/remotery-rs"
